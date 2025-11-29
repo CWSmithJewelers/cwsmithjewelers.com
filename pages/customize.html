@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Jewelry Design | Engagement Rings | C.W. Smith Jewelers | North Fond Du Lac</title>
+    <meta name="description" content="Custom engagement rings & jewelry design in Wisconsin. From concept to completion. Expert craftsmen bring your vision to life since 1957.">
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="../assets/images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../assets/images/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="../assets/images/android-chrome-512x512.png">
+    <style>
+        @font-face {
+            font-family: 'Madegra';
+            src: url('../assets/fonts/Madegra-Regular.ttf') format('truetype');
+            font-weight: 400;
+        }
+        @font-face {
+            font-family: 'Madegra';
+            src: url('../assets/fonts/Madegra-Bold.ttf') format('truetype');
+            font-weight: 700;
+        }
+        @font-face {
+            font-family: 'Proxima Nova';
+            src: url('../assets/fonts/Proxima Nova Regular.otf') format('opentype');
+            font-weight: 400;
+        }
+        @font-face {
+            font-family: 'Proxima Nova';
+            src: url('../assets/fonts/Proxima Nova Semibold.otf') format('opentype');
+            font-weight: 600;
+        }
+        @font-face {
+            font-family: 'Proxima Nova';
+            src: url('../assets/fonts/Proxima Nova Bold.otf') format('opentype');
+            font-weight: 700;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --peach-bg: #E8CEBC;
+            --purple: #3f296c;
+            --dark-purple: #3A2B4F;
+            --text-dark: #2C2C2C;
+        }
+
+        body {
+            font-family: 'Proxima Nova', Arial, sans-serif;
+            background-color: var(--peach-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Madegra', serif;
+            font-weight: 700;
+        }
+        
+        p {
+            font-family: 'Proxima Nova', Arial, sans-serif;
+            font-weight: 600;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: var(--peach-bg);
+            z-index: 1000;
+            padding: 0.75rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-content {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 100%;
+            height: auto;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--purple);
+            text-decoration: none;
+            font-family: 'Proxima Nova', Arial, sans-serif;
+            font-weight: 700;
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--dark-purple);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--purple);
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        /* Mobile Menu Overlay */
+        .mobile-menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: var(--peach-bg);
+            z-index: 1000;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .mobile-menu-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .mobile-menu-overlay ul {
+            list-style: none;
+            text-align: center;
+            padding: 0;
+        }
+
+        .mobile-menu-overlay li {
+            margin: 1.5rem 0;
+        }
+
+        .mobile-menu-overlay a {
+            color: var(--purple);
+            text-decoration: none;
+            font-family: 'Proxima Nova', Arial, sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .mobile-menu-overlay a:hover {
+            color: var(--dark-purple);
+        }
+
+        .mobile-menu-overlay .logo {
+            position: absolute;
+            top: 2rem;
+            left: 3rem;
+            width: 50px;
+            height: 50px;
+        }
+
+        .mobile-close-btn {
+            position: absolute;
+            top: 2rem;
+            right: 3rem;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: var(--purple);
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Page Content */
+        .page-content {
+            margin-top: 100px;
+            padding: 4rem 2rem;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin: 3rem auto;
+            align-items: center;
+        }
+
+        .image-container {
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 3rem auto;
+        }
+
+        .option-card {
+            text-align: center;
+        }
+
+        .option-card h3 {
+            font-size: 32px;
+            color: var(--purple);
+            margin: 1rem 0 0.5rem;
+        }
+
+        .option-card p {
+            font-size: 16px;
+            line-height: 24px;
+            color: var(--purple);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background-color: var(--purple);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--dark-purple);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(63, 41, 108, 0.3);
+        }
+
+        .process-step {
+            margin-bottom: 2.5rem;
+        }
+
+        .process-step h3 {
+            font-size: 32px;
+            color: var(--purple);
+            margin-bottom: 0.5rem;
+        }
+
+        .process-step p {
+            font-size: 16px;
+            line-height: 24px;
+            color: var(--purple);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--peach-bg);
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        footer p {
+            color: var(--purple);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .social-links a {
+            color: var(--purple);
+            transition: opacity 0.3s;
+        }
+
+        .social-links a:hover {
+            opacity: 0.7;
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background-color: var(--purple);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s, transform 0.3s;
+            z-index: 999;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+        }
+
+        .back-to-top img {
+            width: 24px;
+            height: 24px;
+            filter: brightness(0) invert(1);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-content {
+                padding: 0 1.5rem;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .grid-2 {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .grid-3 {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .page-content {
+                padding: 2rem 1rem;
+            }
+
+            h2 {
+                font-size: 32px !important;
+                line-height: 40px !important;
+            }
+
+            .process-step h3,
+            .option-card h3 {
+                font-size: 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-content {
+                padding: 0 1rem;
+            }
+
+            .mobile-menu-overlay .logo {
+                left: 1rem;
+            }
+
+            .mobile-close-btn {
+                right: 1rem;
+            }
+
+            h2 {
+                font-size: 28px !important;
+                line-height: 36px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-content">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../assets/images/CWSmith_DiamondLogo.png" alt="C.W. Smith Jewelers">
+                </a>
+            </div>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+            <ul id="navMenu">
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="diamonds.html">DIAMONDS</a></li>
+                <li><a href="customize.html">CUSTOMIZE</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+        <div class="logo">
+            <a href="../index.html">
+                <img src="../assets/images/CWSmith_DiamondLogo.png" alt="C.W. Smith Jewelers">
+            </a>
+        </div>
+        <button class="mobile-close-btn" onclick="toggleMenu()">✕</button>
+        <ul>
+            <li><a href="about.html" onclick="toggleMenu()">ABOUT</a></li>
+            <li><a href="diamonds.html" onclick="toggleMenu()">DIAMONDS</a></li>
+            <li><a href="customize.html" onclick="toggleMenu()">CUSTOMIZE</a></li>
+            <li><a href="contact.html" onclick="toggleMenu()">CONTACT</a></li>
+        </ul>
+    </div>
+
+    <!-- Page Content -->
+    <div class="page-content">
+        <!-- Customize Header -->
+        <section>
+            <h2 style="font-size: 48px; line-height: 56px; text-align: center; color: var(--purple); margin-bottom: 1rem; letter-spacing: 2px; text-transform: uppercase; max-width: 1200px; margin-left: auto; margin-right: auto;">CUSTOMIZE YOUR JEWELRY</h2>
+            <div style="width: 200px; height: 2px; background-color: var(--purple); margin: 0 auto 2rem;"></div>
+            <p style="text-align: center; font-size: 18px; line-height: 28px; max-width: 1200px; margin: 0 auto 3rem; color: var(--purple);">Create a one-of-a-kind piece that tells your unique story. Our master craftsmen work with you to bring your vision to life, from initial concept to finished masterpiece. Serving Fond Du Lac County since 1957</p>
+        </section>
+
+        <!-- Design Process Section -->
+        <section style="margin-top: 3rem;">
+            <h2 style="font-size: 48px; line-height: 56px; color: var(--purple); margin-bottom: 3rem; letter-spacing: 2px; text-transform: uppercase; max-width: 1200px; margin-left: auto; margin-right: auto;">OUR DESIGN PROCESS</h2>
+            
+            <div class="grid-2" style="max-width: 1200px; gap: 5rem;">
+                <div>
+                    <div class="image-container" style="margin-bottom: 3rem;">
+                        <img src="../assets/images/Customization01.png" alt="Design Sketch">
+                    </div>
+                    <div class="image-container">
+                        <img src="../assets/images/Customization02.png" alt="Custom Rings">
+                    </div>
+                </div>
+                
+                <div style="display: flex; flex-direction: column; justify-content: center;">
+                    <div class="process-step">
+                        <h3>Consultation</h3>
+                        <p>Meet with our design experts to discuss your vision.</p>
+                    </div>
+                    
+                    <div class="process-step">
+                        <h3>Design & Approval</h3>
+                        <p>Articulate your preferences, and budget.</p>
+                    </div>
+                    
+                    <div class="process-step">
+                        <h3>Crafting</h3>
+                        <p>We'll provide guidance on materials, stones, and design elements.</p>
+                    </div>
+                    
+                    <div class="process-step" style="margin-bottom: 0;">
+                        <h3>Final Review & Delivery</h3>
+                        <p>And finalize a timeline for completion and delivery</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Customization Options Section -->
+        <section style="margin-top: 5rem;">
+            <h2 style="font-size: 48px; line-height: 56px; text-align: center; color: var(--purple); margin-bottom: 3rem; letter-spacing: 2px; text-transform: uppercase;">CUSTOMIZATION OPTIONS</h2>
+            
+            <div class="grid-3" style="max-width: 1200px;">
+                <div class="option-card">
+                    <div class="image-container" style="margin-bottom: 1rem;">
+                        <img src="../assets/images/Customization03.png" alt="Engagement Rings">
+                    </div>
+                    <h3>Engagement Rings</h3>
+                    <p>Design a unique symbol of love with a custom engagement ring tailored to your partners style and preferences</p>
+                </div>
+
+                <div class="option-card">
+                    <div class="image-container" style="margin-bottom: 1rem;">
+                        <img src="../assets/images/Customization04.png" alt="Wedding Bands">
+                    </div>
+                    <h3>Wedding Bands</h3>
+                    <p>Create matching wedding bands that reflect your shared journey, with presonalized details and engravings</p>
+                </div>
+
+                <div class="option-card">
+                    <div class="image-container" style="margin-bottom: 1rem;">
+                        <img src="../assets/images/Customization05.png" alt="Anniversary Jewelry">
+                    </div>
+                    <h3>Anniversary Jewelry</h3>
+                    <p>Commemorate special milestones with custom anniversary pieces that celebrate your years together</p>
+                </div>
+
+                <div class="option-card">
+                    <div class="image-container" style="margin-bottom: 1rem;">
+                        <img src="../assets/images/Customization06.png" alt="Family Heirlooms">
+                    </div>
+                    <h3>Family Heirlooms</h3>
+                    <p>Transform family treasures into modern pieces that preserve your heritage while creating something new and ever-lasting</p>
+                </div>
+
+                <div class="option-card">
+                    <div class="image-container" style="margin-bottom: 1rem;">
+                        <img src="../assets/images/Customization07.png" alt="Personal Adornments">
+                    </div>
+                    <h3>Personal Adornments</h3>
+                    <p>Express your individual style with custom necklaces, bracelets, earrings, and other personal pieces</p>
+                </div>
+
+                <div class="option-card">
+                    <div class="image-container" style="margin-bottom: 1rem;">
+                        <img src="../assets/images/Customization08.png" alt="Memorial Jewelry">
+                    </div>
+                    <h3>Memorial Jewelry</h3>
+                    <p>Honor loved ones with thoughtfully designed memorial pieces that keep their memory close</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Section -->
+        <section style="margin-top: 5rem;">
+            <h2 style="font-size: 48px; line-height: 56px; text-align: center; color: var(--purple); margin-bottom: 1rem; letter-spacing: 2px; text-transform: uppercase; max-width: 1200px; margin-left: auto; margin-right: auto;">Start Your Custom Journey in North Fond Du Lac</h2>
+            <div style="width: 200px; height: 2px; background-color: var(--purple); margin: 0 auto 2rem;"></div>
+            <p style="text-align: center; font-size: 18px; line-height: 28px; max-width: 1000px; margin: 0 auto 2rem; color: var(--purple);">Ready to create your dream piece? Schedule a consultation with our design experts to begin your custom jewelry journey. Proudly serving The Fond Du Lac County area since 1957.</p>
+            
+            <div style="text-align: center; margin: 2rem 0;">
+                <a href="mailto:ronda@cwsmithjewelers.com" class="btn" style="display: inline-block; padding: 1rem 2.5rem; background-color: var(--purple); color: white; text-decoration: none; border-radius: 30px; font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase; transition: all 0.3s;">Schedule a Consultation</a>
+            </div>
+
+            <div style="max-width: 1200px; margin: 2rem auto 0;">
+                <img src="../assets/images/Customization09.png" alt="Custom Jewelry Display" style="width: 100%; border-radius: 4px;">
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div style="width: 200px; height: 2px; background-color: var(--purple); margin: 0 auto 2rem;"></div>
+        
+        <p style="font-size: 16px; margin-bottom: 0.5rem; color: var(--purple); text-align: center;">603 Wisconsin Ave</p>
+        <p style="font-size: 16px; margin-bottom: 0.5rem; color: var(--purple); text-align: center;">Fond Du Lac, WI 54937</p>
+        <p style="font-size: 16px; margin-bottom: 1rem; color: var(--purple); text-align: center;"><a href="tel:9209226259" style="color: var(--purple); text-decoration: none;">(920) 922-6259</a></p>
+        
+        <div class="social-links">
+            <a href="https://www.facebook.com/cwsmithjewelers" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+            </a>
+            <a href="https://www.instagram.com/cwsmithjewelers/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+            </a>
+        </div>
+
+        <p style="font-size: 14px; margin-top: 1rem; color: var(--purple); text-align: center;">© 2025 C.W. Smith Jewelers. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop" onclick="scrollToTop()">
+        <img src="../assets/images/backtotop.svg" alt="Back to top">
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const overlay = document.getElementById('mobileMenuOverlay');
+            overlay.classList.toggle('active');
+            document.body.style.overflow = overlay.classList.contains('active') ? 'hidden' : 'auto';
+        }
+
+        const backToTopBtn = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        document.querySelectorAll('.mobile-menu-overlay a').forEach(link => {
+            link.addEventListener('click', () => {
+                toggleMenu();
+            });
+        });
+    </script>
+<!-- Schema Markup for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "JewelryStore",
+      "name": "C.W. Smith Jewelers",
+      "image": "https://www.cwsmithjewelers.com/assets/images/CWSmithNightPhoto.png",
+      "@id": "https://www.cwsmithjewelers.com",
+      "url": "https://www.cwsmithjewelers.com",
+      "telephone": "+19209226259",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "603 Wisconsin Ave",
+        "addressLocality": "North Fond Du Lac",
+        "addressRegion": "WI",
+        "postalCode": "54937",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 43.8133,
+        "longitude": -88.4486
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Monday",
+          "opens": "09:00",
+          "closes": "17:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "10:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "09:00",
+          "closes": "15:00"
+        }
+      ],
+      "foundingDate": "1957",
+      "sameAs": [
+        "https://www.facebook.com/cwsmithjewelers",
+        "https://www.instagram.com/cwsmithjewelers/"
+      ]
+    }
+    </script>
+</body>
+</html>

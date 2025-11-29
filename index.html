@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C.W. Smith Jewelers | Diamond & Engagement Rings | North Fond Du Lac, WI Since 1957</title>
+    <meta name="description" content="Wisconsin's trusted family jeweler since 1957. Custom engagement rings, GIA certified diamonds & expert jewelry repair. Visit us in North Fond Du Lac.">
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="assets/images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/images/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/images/android-chrome-512x512.png">
+    <style>
+        @font-face {
+            font-family: 'Madegra';
+            src: url('assets/fonts/Madegra-Regular.ttf') format('truetype');
+            font-weight: 400;
+        }
+        @font-face {
+            font-family: 'Madegra';
+            src: url('assets/fonts/Madegra-Light.ttf') format('truetype');
+            font-weight: 300;
+        }
+        @font-face {
+            font-family: 'Madegra';
+            src: url('assets/fonts/Madegra-Bold.ttf') format('truetype');
+            font-weight: 700;
+        }
+        @font-face {
+            font-family: 'Proxima Nova';
+            src: url('assets/fonts/Proxima Nova Regular.otf') format('opentype');
+            font-weight: 400;
+        }
+        @font-face {
+            font-family: 'Proxima Nova';
+            src: url('assets/fonts/Proxima Nova Light.otf') format('opentype');
+            font-weight: 300;
+        }
+        @font-face {
+            font-family: 'Proxima Nova';
+            src: url('assets/fonts/Proxima Nova Semibold.otf') format('opentype');
+            font-weight: 600;
+        }
+        @font-face {
+            font-family: 'Proxima Nova';
+            src: url('assets/fonts/Proxima Nova Bold.otf') format('opentype');
+            font-weight: 700;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --peach-bg: #E8CEBC;
+            --purple: #3f296c;
+            --dark-purple: #3A2B4F;
+            --text-dark: #2C2C2C;
+        }
+
+        body {
+            font-family: 'Proxima Nova', Arial, sans-serif;
+            background-color: var(--peach-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Madegra', serif;
+            font-weight: 700;
+        }
+        
+        p, .section-subtitle {
+            font-family: 'Proxima Nova', Arial, sans-serif;
+            font-weight: 600;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: var(--peach-bg);
+            z-index: 1000;
+            padding: 0.75rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-content {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 100%;
+            height: auto;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--purple);
+            text-decoration: none;
+            font-family: 'Proxima Nova', Arial, sans-serif;
+            font-weight: 700;
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--dark-purple);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--purple);
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        /* Mobile Menu Overlay */
+        .mobile-menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: var(--peach-bg);
+            z-index: 1000;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .mobile-menu-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .mobile-menu-overlay ul {
+            list-style: none;
+            text-align: center;
+            padding: 0;
+        }
+
+        .mobile-menu-overlay li {
+            margin: 1.5rem 0;
+        }
+
+        .mobile-menu-overlay a {
+            color: var(--purple);
+            text-decoration: none;
+            font-family: 'Proxima Nova', Arial, sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .mobile-menu-overlay a:hover {
+            color: var(--dark-purple);
+        }
+
+        .mobile-menu-overlay .logo {
+            position: absolute;
+            top: 2rem;
+            left: 3rem;
+            width: 50px;
+            height: 50px;
+        }
+
+        .mobile-close-btn {
+            position: absolute;
+            top: 2rem;
+            right: 3rem;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: var(--purple);
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .hero-logo {
+            max-width: 500px;
+            width: 100%;
+            margin: auto;
+        }
+
+        .hero-logo img {
+            width: 100%;
+            height: auto;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            cursor: pointer;
+            animation: bounce 2s infinite;
+            color: var(--purple);
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        /* Section Styles */
+        section {
+            padding: 4rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 48px;
+            line-height: 56px;
+            text-align: center;
+            color: var(--purple);
+            margin-bottom: 8px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 18px;
+            line-height: 24px;
+            max-width: 776px;
+            margin: 0 auto 8px;
+            color: var(--purple);
+        }
+
+        /* Grid Layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin: 3rem 0;
+        }
+
+        .image-container {
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .image-container:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Location Section */
+        .location-section {
+            background-image: url('assets/images/LetOurLocationImage.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .location-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .quote-text {
+            font-family: 'Madegra', serif;
+            font-size: 2rem;
+            color: var(--purple);
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background-color: var(--purple);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--dark-purple);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(74, 59, 95, 0.3);
+        }
+
+        /* Values Section */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin: 3rem 0;
+        }
+
+        .value-card {
+            text-align: center;
+        }
+
+        .value-card h3 {
+            font-size: 1.8rem;
+            color: var(--purple);
+            margin-bottom: 1rem;
+        }
+
+        .value-card p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        /* Four Cs Section */
+        .four-cs-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .cs-card {
+            text-align: center;
+        }
+
+        .cs-card h3 {
+            font-size: 1.5rem;
+            color: var(--purple);
+            margin: 1rem 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .cs-card p {
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        /* Contact Info */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin: 3rem 0;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .info-item img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .info-item h3 {
+            color: var(--purple);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hours-list {
+            list-style: none;
+            line-height: 2;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background-color: var(--purple);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s, transform 0.3s;
+            z-index: 999;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+        }
+
+        .back-to-top img {
+            width: 24px;
+            height: 24px;
+            filter: brightness(0) invert(1);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--peach-bg);
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        footer p {
+            color: var(--purple);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .social-links a {
+            color: var(--purple);
+            transition: opacity 0.3s;
+        }
+
+        .social-links a:hover {
+            opacity: 0.7;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .grid-4 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .four-cs-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-content {
+                padding: 0 1.5rem;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-logo {
+                max-width: 350px;
+            }
+
+            .scroll-indicator {
+                bottom: 2rem;
+            }
+
+            .grid-2, .grid-3, .grid-4, .four-cs-grid, .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .quote-text {
+                font-size: 1.5rem;
+            }
+
+            section {
+                padding: 3rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-content {
+                padding: 0 1rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .logo {
+                width: 50px;
+                height: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-content">
+            <div class="logo">
+                <img src="assets/images/CWSmith_DiamondLogo.png" alt="C.W. Smith Jewelers">
+            </div>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+            <ul id="navMenu">
+                <li><a href="pages/about.html">ABOUT</a></li>
+                <li><a href="pages/diamonds.html">DIAMONDS</a></li>
+                <li><a href="pages/customize.html">CUSTOMIZE</a></li>
+                <li><a href="pages/contact.html">CONTACT</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+        <div class="logo">
+            <img src="assets/images/CWSmith_DiamondLogo.png" alt="C.W. Smith Jewelers">
+        </div>
+        <button class="mobile-close-btn" onclick="toggleMenu()">✕</button>
+        <ul>
+            <li><a href="pages/about.html" onclick="toggleMenu()">ABOUT</a></li>
+            <li><a href="pages/diamonds.html" onclick="toggleMenu()">DIAMONDS</a></li>
+            <li><a href="pages/customize.html" onclick="toggleMenu()">CUSTOMIZE</a></li>
+            <li><a href="pages/contact.html" onclick="toggleMenu()">CONTACT</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-logo">
+            <img src="assets/images/CWJewelers_Logo.png" alt="C.W. Smith Jewelers">
+        </div>
+        <div class="scroll-indicator" onclick="scrollToSection('location')">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="location">
+        <h2 class="section-title" style="max-width: 974px; margin-left: auto; margin-right: auto;">LET OUR LOCATION BE YOUR SAVINGS</h2>
+        <p class="section-subtitle">As a modest, family-owned, brick-and-mortar business in North Fond Du Lac, WI, we have had the priviledge of serving countless customers with the HIGHEST QUALITY JEWELRY at the LOWEST PRICES possible SINCE 1957 in a relaxed enviornment, free of unnecessary overhead costs.</p>
+        <p class="section-subtitle">Generations of families <em>just like ours</em> have continued to place their trust in us for more than 60 years, from their very first purchase, onward</p>
+        
+        <div class="image-container" style="margin: 1.5rem auto 1rem; max-width: 974px;">
+            <img src="assets/images/Diamonds Image Stack Top copy.png" alt="Diamond Rings Collection" style="width: 100%; border-radius: 4px;">
+        </div>
+        
+        <div class="grid-3" style="max-width: 974px; margin: 0 auto 1.5rem; gap: 1.5rem;">
+            <div class="image-container">
+                <img src="assets/images/Diamonds Image Stack Left.png" alt="Engagement Rings">
+            </div>
+            <div class="image-container">
+                <img src="assets/images/Diamonds Image Stack Middle.png" alt="Wedding Bands">
+            </div>
+            <div class="image-container">
+                <img src="assets/images/Diamonds Image Stack Right.png" alt="Diamond Jewelry">
+            </div>
+        </div>
+
+        <div style="text-align: center; margin: 3rem 0;">
+            <a href="pages/about.html" class="btn">LEARN MORE</a>
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section style="text-align: center; padding: 4rem 2rem;">
+        <div style="width: 380px; height: 1px; background-color: #3f296c; margin: 0 auto 2rem;"></div>
+        <img src="assets/images/homequote02.png" alt="Life is not perfect but jewelry can be" style="max-width: 380px; width: 100%; height: auto; margin: 0 auto; display: block;">
+        <div style="width: 380px; height: 1px; background-color: #3f296c; margin: 2rem auto 0;"></div>
+    </section>
+
+    <!-- Diamonds Section -->
+    <section id="diamonds">
+        <h2 class="section-title" style="max-width: 974px; margin-left: auto; margin-right: auto;">DIAMONDS & ENGAGEMENT RINGS</h2>
+        <p class="section-subtitle">It has been our PASSION since we sold our first diamond engagement ring on February 12, 1957</p>
+        
+        <div style="max-width: 974px; margin: 1.5rem auto;">
+            <img src="assets/images/CWSmith Jewelers_Diamond_Hands_HomePage.jpg" alt="Diamond Rings" style="width: 100%; border-radius: 4px;">
+        </div>
+
+        <p class="section-subtitle" style="margin-top: 1.5rem;">We search the world every year for the highest quality, finest cut diamonds. And unlike online retailers who rarely ever see the diamonds they're selling, we physically examine each one in person. We reject hundreds of diamonds per year that have "beautiful certificates" but lack true beauty when inspected by a person.</p>
+
+        <div style="text-align: center; margin: 2rem 0;">
+            <a href="pages/diamonds.html" class="btn">LEARN MORE →</a>
+        </div>
+
+        <div style="max-width: 974px; margin: 2rem auto;">
+            <img src="assets/images/CWSmithJewelers_DiamondMap.png" alt="Diamond Sourcing Map" style="width: 100%; border-radius: 4px;">
+        </div>
+    </section>
+
+    <!-- Quote Section 2 -->
+    <section style="text-align: center; padding: 4rem 2rem;">
+        <div style="width: 380px; height: 1px; background-color: #3f296c; margin: 0 auto 2rem;"></div>
+        <img src="assets/images/LifeisNotPerfectButJewerlyCanBe_CWSmithJewelers.png" alt="Your jewelry introduces you before you speak" style="max-width: 380px; width: 100%; height: auto; margin: 0 auto; display: block;">
+        <div style="width: 380px; height: 1px; background-color: #3f296c; margin: 2rem auto 0;"></div>
+    </section>
+
+    <!-- Customization Section -->
+    <section id="customize">
+        <h2 class="section-title" style="max-width: 974px; margin-left: auto; margin-right: auto;">CUSTOMIZATION</h2>
+        <p class="section-subtitle">There's a reason her wedding ring is worn closest to her heart, and we will work tirelessly to find that perfect fit, whether in store, or through our nation-wide network of like-minded jewelers.</p>
+        
+        <div style="max-width: 974px; margin: 1.5rem auto;">
+            <img src="assets/images/Custom Grid Stack Top.png" alt="Custom Jewelry Design" style="width: 100%; border-radius: 4px;">
+        </div>
+        
+        <div class="grid-3" style="max-width: 974px; margin: 0 auto 1.5rem; gap: 1.5rem;">
+            <div class="image-container">
+                <img src="assets/images/Custom Grid Stack Bottom Left.png" alt="Custom Design Process">
+            </div>
+            <div class="image-container">
+                <img src="assets/images/Custom Grid Stack Bottom Middle.png" alt="Jewelry Crafting">
+            </div>
+            <div class="image-container">
+                <img src="assets/images/Custom Grid Stack Bottom Right.png" alt="Custom Ring Design">
+            </div>
+        </div>
+
+        <div style="text-align: center; margin: 2rem 0;">
+            <a href="pages/customize.html" class="btn">LEARN MORE →</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="padding-top: 4rem;">
+        <div style="max-width: 600px; margin: 0 auto; text-align: center;">
+            <div style="width: 200px; height: 2px; background-color: var(--purple); margin: 0 auto 2rem;"></div>
+            
+            <p style="font-size: 16px; margin-bottom: 0.5rem; color: var(--purple);">603 Wisconsin Ave</p>
+            <p style="font-size: 16px; margin-bottom: 0.5rem; color: var(--purple);">Fond Du Lac, WI 54937</p>
+            <p style="font-size: 16px; margin-bottom: 1rem; color: var(--purple);"><a href="tel:9209226259" style="color: var(--purple); text-decoration: none;">(920) 922-6259</a></p>
+            
+            <div class="social-links">
+                <a href="https://www.facebook.com/cwsmithjewelers" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                </a>
+                <a href="https://www.instagram.com/cwsmithjewelers/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                </a>
+            </div>
+
+            <p style="font-size: 14px; margin-top: 1rem; margin-bottom: 3rem; color: var(--purple);">© 2025 C.W. Smith Jewelers. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop" onclick="scrollToTop()">
+        <img src="assets/images/backtotop.svg" alt="Back to top">
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const overlay = document.getElementById('mobileMenuOverlay');
+            overlay.classList.toggle('active');
+            document.body.style.overflow = overlay.classList.contains('active') ? 'hidden' : 'auto';
+        }
+
+        // Smooth Scroll
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Back to Top Button
+        const backToTopBtn = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Close mobile menu when link is clicked
+        document.querySelectorAll('.mobile-menu-overlay a').forEach(link => {
+            link.addEventListener('click', () => {
+                toggleMenu();
+            });
+        });
+    </script>
+    <!-- Schema Markup for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "JewelryStore",
+      "name": "C.W. Smith Jewelers",
+      "image": "https://www.cwsmithjewelers.com/assets/images/CWSmithNightPhoto.png",
+      "@id": "https://www.cwsmithjewelers.com",
+      "url": "https://www.cwsmithjewelers.com",
+      "telephone": "+19209226259",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "603 Wisconsin Ave",
+        "addressLocality": "North Fond Du Lac",
+        "addressRegion": "WI",
+        "postalCode": "54937",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 43.8133,
+        "longitude": -88.4486
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Monday",
+          "opens": "09:00",
+          "closes": "17:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "10:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "09:00",
+          "closes": "15:00"
+        }
+      ],
+      "foundingDate": "1957",
+      "sameAs": [
+        "https://www.facebook.com/cwsmithjewelers",
+        "https://www.instagram.com/cwsmithjewelers/"
+      ]
+    }
+    </script>
+</body>
+</html>

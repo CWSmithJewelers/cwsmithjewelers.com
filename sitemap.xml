@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>https://www.cwsmithjewelers.com/</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.cwsmithjewelers.com/pages/about.html</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.cwsmithjewelers.com/pages/diamonds.html</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.cwsmithjewelers.com/pages/customize.html</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.cwsmithjewelers.com/pages/contact.html</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+</urlset>
+```
+
+---
+
+## What This Does:
+
+- **`<loc>`** = URL of each page
+- **`<lastmod>`** = Last modified date (update this when you make changes)
+- **`<changefreq>`** = How often the page changes
+- **`<priority>`** = Importance (1.0 = most important, 0.7 = less important)
+
+**Priority breakdown:**
+- Home page = 1.0 (most important)
+- Diamonds/Customize = 0.9 (high priority - your money makers!)
+- About = 0.8 (important)
+- Contact = 0.7 (standard)
+
+---
+
+## After Creating sitemap.xml:
+
+### 1. Test It
+After you launch, visit:
+```
+https://www.cwsmithjewelers.com/sitemap.xml
